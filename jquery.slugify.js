@@ -33,11 +33,14 @@
 
 		var updateSlug = function () {
 			var slug = convertToSlug($(this).val());
-			if (targetIsInput) {
-				$target.filter(':not(.slugify-locked)').val(slug);
-			} else {
-				$target.filter(':not(.slugify-locked)').text(slug);
-			}
+			$target.filter(':not(.slugify-locked)').each(function(){
+				var el = $(this)
+				if(el.is('input') || el.is('textarea')){
+					el.val(slug)
+				} else {
+					el.text(slug)
+				}
+			})
 		};
 
 
