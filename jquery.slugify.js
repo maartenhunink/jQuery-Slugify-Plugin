@@ -46,7 +46,7 @@
 
 		$source.keyup( updateSlug ).change( updateSlug );
 
-		$target.change(function () {
+		$target.keyup(function () {
 			var slug = convertToSlug($(this).val());
 			// var slug = $(this).val();
 			$target.val(slug).text(slug);
